@@ -7,6 +7,8 @@ EN: You can manage timeouts and collect results without blocking.
 IT: Puoi gestire timeout e raccogliere risultati senza bloccare.
 EN: This exercise simulates tasks with duration and failures.
 IT: Questo esercizio simula task con durata e fallimenti.
+EN: When you run the program, choose IT or EN to see the objective.
+IT: Quando avvii il programma, scegli IT o EN per vedere l obiettivo.
 
 Example / Esempio
 EN: Task A: 200 ms, success

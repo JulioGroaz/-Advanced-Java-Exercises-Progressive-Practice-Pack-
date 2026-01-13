@@ -1,17 +1,46 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public class Main {
-  record LineItem(String sku, int qty, double unitPrice) {
+  static class LineItem {
+    private final String sku;
+    private final int qty;
+    private final double unitPrice;
+
+    LineItem(String sku, int qty, double unitPrice) {
+      this.sku = sku;
+      this.qty = qty;
+      this.unitPrice = unitPrice;
+    }
+
+    String sku() {
+      return sku;
+    }
+
+    int qty() {
+      return qty;
+    }
+
+    double unitPrice() {
+      return unitPrice;
+    }
+
     double lineTotal() {
       return qty * unitPrice;
     }
   }
 
-  record Basket(List<LineItem> items) {
-    Basket {
+  static class Basket {
+    private final List<LineItem> items;
+
+    Basket(List<LineItem> items) {
       // TODO (EN): validate qty >= 1, unitPrice >= 0, and defensive copy. (IT): valida qty >= 1, unitPrice >= 0, e fai una copia difensiva.
       throw new UnsupportedOperationException("TODO");
+    }
+
+    List<LineItem> items() {
+      return items;
     }
 
     double total() {
@@ -19,10 +48,54 @@ public class Main {
     }
   }
 
-  record AppliedDiscount(String ruleName, double amount) {}
+  static class AppliedDiscount {
+    private final String ruleName;
+    private final double amount;
 
-  record PricingSummary(double originalTotal, double discountTotal, double finalTotal,
-                        List<AppliedDiscount> discounts) {}
+    AppliedDiscount(String ruleName, double amount) {
+      this.ruleName = ruleName;
+      this.amount = amount;
+    }
+
+    String ruleName() {
+      return ruleName;
+    }
+
+    double amount() {
+      return amount;
+    }
+  }
+
+  static class PricingSummary {
+    private final double originalTotal;
+    private final double discountTotal;
+    private final double finalTotal;
+    private final List<AppliedDiscount> discounts;
+
+    PricingSummary(double originalTotal, double discountTotal, double finalTotal,
+                   List<AppliedDiscount> discounts) {
+      this.originalTotal = originalTotal;
+      this.discountTotal = discountTotal;
+      this.finalTotal = finalTotal;
+      this.discounts = discounts;
+    }
+
+    double originalTotal() {
+      return originalTotal;
+    }
+
+    double discountTotal() {
+      return discountTotal;
+    }
+
+    double finalTotal() {
+      return finalTotal;
+    }
+
+    List<AppliedDiscount> discounts() {
+      return discounts;
+    }
+  }
 
   interface PricingRule {
     Optional<AppliedDiscount> apply(Basket basket);
@@ -70,12 +143,15 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    Basket basket = new Basket(List.of(
+    LanguageSelector.Language lang = LanguageSelector.selectLanguage();
+    printExerciseIntro(lang);
+
+    Basket basket = new Basket(Arrays.asList(
         new LineItem("A", 3, 10.0),
         new LineItem("B", 1, 40.0)
     ));
 
-    List<PricingRule> rules = List.of(
+    List<PricingRule> rules = Arrays.asList(
         new BulkDiscountRule("A", 3, 0.10),
         new ThresholdPercentRule(50.0, 0.05)
     );
@@ -85,5 +161,16 @@ public class Main {
     System.out.println("Discount total: " + summary.discountTotal());
     System.out.println("Final total: " + summary.finalTotal());
     System.out.println("Discounts: " + summary.discounts());
+  }
+
+  static void printExerciseIntro(LanguageSelector.Language lang) {
+    if (lang == LanguageSelector.Language.IT) {
+      System.out.println("Obiettivo: mantenere Basket immutabile e applicare regole di pricing.");
+      System.out.println("Compiti: valida items, implementa regole sconto, calcola riepilogo.");
+    } else {
+      System.out.println("Objective: keep Basket immutable and apply pricing rules.");
+      System.out.println("Tasks: validate items, implement discount rules, compute summary.");
+    }
+    System.out.println();
   }
 }

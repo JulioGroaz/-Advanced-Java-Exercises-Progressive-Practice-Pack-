@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -54,7 +55,10 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    List<Book> books = List.of(
+    LanguageSelector.Language lang = LanguageSelector.selectLanguage();
+    printExerciseIntro(lang);
+
+    List<Book> books = Arrays.asList(
         new Book("Clean Code", 35.0),
         new Book("Effective Java", 45.0)
     );
@@ -66,5 +70,16 @@ public class Main {
     System.out.println("Max price: " + max);
 
     printNames(products);
+  }
+
+  static void printExerciseIntro(LanguageSelector.Language lang) {
+    if (lang == LanguageSelector.Language.IT) {
+      System.out.println("Obiettivo: praticare la varianza generics con la regola PECS.");
+      System.out.println("Compiti: transfer elementi, trova max con comparator, stampa nomi.");
+    } else {
+      System.out.println("Objective: practice generics variance with the PECS rule.");
+      System.out.println("Tasks: transfer items, find max with comparator, print names.");
+    }
+    System.out.println();
   }
 }

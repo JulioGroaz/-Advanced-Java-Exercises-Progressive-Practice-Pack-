@@ -7,6 +7,10 @@ EN: This reduces bugs and makes reasoning easier when data is shared.
 IT: Questo riduce bug e rende piu facile ragionare quando i dati sono condivisi.
 EN: You will build a pricing engine that applies rules without mutating the Basket.
 IT: Creerai un motore di pricing che applica regole senza modificare il Basket.
+EN: Java 8 has no records, so use immutable classes with final fields.
+IT: Java 8 non ha record, quindi usa classi immutabili con campi final.
+EN: When you run the program, choose IT or EN to see the objective.
+IT: Quando avvii il programma, scegli IT o EN per vedere l obiettivo.
 
 Example / Esempio
 EN: Basket:
@@ -39,8 +43,8 @@ EN: 3) Implement PricingEngine.apply to compute totals and discounts.
 IT: 3) Implementa PricingEngine.apply per calcolare totali e sconti.
 
 Hints / Suggerimenti
-EN: Use List.copyOf to avoid external mutation.
-IT: Usa List.copyOf per evitare modifiche esterne.
+EN: Use a defensive copy and return an unmodifiable list (e.g., new ArrayList + Collections.unmodifiableList).
+IT: Usa una copia difensiva e restituisci una lista non modificabile (es. new ArrayList + Collections.unmodifiableList).
 EN: Rules should return Optional.empty() when not applicable.
 IT: Le regole devono restituire Optional.empty() se non applicabili.
 EN: Sum discounts and compute final total without touching original data.

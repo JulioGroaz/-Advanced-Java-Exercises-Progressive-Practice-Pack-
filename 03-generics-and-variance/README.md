@@ -9,6 +9,8 @@ EN: Use wildcards like ? extends (producer) and ? super (consumer).
 IT: Usa wildcard come ? extends (producer) e ? super (consumer).
 EN: This exercise applies PECS to copy and compare elements.
 IT: Questo esercizio applica PECS per copiare e confrontare elementi.
+EN: When you run the program, choose IT or EN to see the objective.
+IT: Quando avvii il programma, scegli IT o EN per vedere l obiettivo.
 
 Example / Esempio
 EN: Source: List<Book> with 2 elements

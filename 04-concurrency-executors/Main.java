@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -9,7 +10,41 @@ import java.util.concurrent.TimeUnit;
 public class Main {
   enum Status { SUCCESS, FAILED, TIMEOUT }
 
-  record TaskResult(String id, Status status, String message, long durationMs) {}
+  static class TaskResult {
+    private final String id;
+    private final Status status;
+    private final String message;
+    private final long durationMs;
+
+    TaskResult(String id, Status status, String message, long durationMs) {
+      this.id = id;
+      this.status = status;
+      this.message = message;
+      this.durationMs = durationMs;
+    }
+
+    String id() {
+      return id;
+    }
+
+    Status status() {
+      return status;
+    }
+
+    String message() {
+      return message;
+    }
+
+    long durationMs() {
+      return durationMs;
+    }
+
+    @Override
+    public String toString() {
+      return "TaskResult{id='" + id + "', status=" + status + ", message='" + message
+          + "', durationMs=" + durationMs + "}";
+    }
+  }
 
   static Callable<TaskResult> buildTask(String id, long workMs, boolean fail) {
     return () -> {
@@ -42,7 +77,10 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    List<Callable<TaskResult>> tasks = List.of(
+    LanguageSelector.Language lang = LanguageSelector.selectLanguage();
+    printExerciseIntro(lang);
+
+    List<Callable<TaskResult>> tasks = Arrays.asList(
         buildTask("A", 200, false),
         buildTask("B", 800, false),
         buildTask("C", 300, true)
@@ -53,5 +91,16 @@ public class Main {
       System.out.println(r);
     }
     printSummary(results);
+  }
+
+  static void printExerciseIntro(LanguageSelector.Language lang) {
+    if (lang == LanguageSelector.Language.IT) {
+      System.out.println("Obiettivo: eseguire task con ExecutorService e gestire timeout.");
+      System.out.println("Compiti: esegui con timeout, cancella task in timeout, mantieni ordine.");
+    } else {
+      System.out.println("Objective: run tasks with ExecutorService and handle timeouts.");
+      System.out.println("Tasks: execute with timeout, cancel timed-out tasks, keep order.");
+    }
+    System.out.println();
   }
 }

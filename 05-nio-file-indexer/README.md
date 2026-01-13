@@ -7,6 +7,8 @@ EN: You will build an indexer that counts words in .java files under a folder.
 IT: Creerai un indicizzatore che conta le parole nei file .java in una cartella.
 EN: A max file size limit is enforced.
 IT: E presente un limite massimo di dimensione file.
+EN: When you run the program, choose IT or EN to see the objective.
+IT: Quando avvii il programma, scegli IT o EN per vedere l obiettivo.
 
 Example / Esempio
 EN: If the folder contains:

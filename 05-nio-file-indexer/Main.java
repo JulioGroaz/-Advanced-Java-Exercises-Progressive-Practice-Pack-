@@ -13,6 +13,9 @@ public class Main {
   private static final Pattern SPLIT = Pattern.compile("[^A-Za-z]+");
 
   public static void main(String[] args) throws IOException {
+    LanguageSelector.Language lang = LanguageSelector.selectLanguage();
+    printExerciseIntro(lang);
+
     Path root = Paths.get("sample-data");
     Map<Path, Map<String, Integer>> index = index(root, 10_000);
     printTopWords(index, 3);
@@ -40,5 +43,16 @@ public class Main {
   static void printTopWords(Map<Path, Map<String, Integer>> index, int topN) {
     // TODO (EN): for each file, print topN words by frequency. (IT): per ogni file, stampa le topN parole per frequenza.
     throw new UnsupportedOperationException("TODO");
+  }
+
+  static void printExerciseIntro(LanguageSelector.Language lang) {
+    if (lang == LanguageSelector.Language.IT) {
+      System.out.println("Obiettivo: indicizzare file .java con NIO e contare parole.");
+      System.out.println("Compiti: visita cartelle, conta token, stampa top parole per file.");
+    } else {
+      System.out.println("Objective: index .java files with NIO and count words.");
+      System.out.println("Tasks: walk folders, count tokens, print top words per file.");
+    }
+    System.out.println();
   }
 }
