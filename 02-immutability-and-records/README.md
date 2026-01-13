@@ -1,37 +1,47 @@
 # 02 - Immutability and Pricing Rules
 
-IT - Concetto
-Immutabilita significa che un oggetto non cambia stato dopo la creazione.
-Questo riduce bug e rende il codice piu facile da ragionare, soprattutto
-quando piu parti del programma condividono gli stessi dati.
-In questo esercizio crei un motore di pricing che applica regole senza
-modificare il Basket originale.
+Concept / Concetto
+EN: Immutability means an object does not change state after creation.
+IT: Immutabilita significa che un oggetto non cambia stato dopo la creazione.
+EN: This reduces bugs and makes reasoning easier when data is shared.
+IT: Questo riduce bug e rende piu facile ragionare quando i dati sono condivisi.
+EN: You will build a pricing engine that applies rules without mutating the Basket.
+IT: Creerai un motore di pricing che applica regole senza modificare il Basket.
 
-EN - Concept
-Immutability means an object does not change state after creation. This
-reduces bugs and makes reasoning easier, especially when multiple parts of the
-program share the same data. In this exercise you build a pricing engine that
-applies rules without mutating the original Basket.
+Example / Esempio
+EN: Basket:
+IT: Basket:
+EN: - SKU A, qty 3, unit 10.00
+IT: - SKU A, qty 3, unit 10.00
+EN: - SKU B, qty 1, unit 40.00
+IT: - SKU B, qty 1, unit 40.00
+EN: Rules:
+IT: Regole:
+EN: - BulkDiscountRule("A", minQty=3, percent=0.10)
+IT: - BulkDiscountRule("A", minQty=3, percent=0.10)
+EN: - ThresholdPercentRule(minTotal=50.00, percent=0.05)
+IT: - ThresholdPercentRule(minTotal=50.00, percent=0.05)
+EN: Expected result:
+IT: Risultato atteso:
+EN: - Original total = 70.00
+IT: - Totale originale = 70.00
+EN: - Discount total = 7.00 + 3.50 = 10.50
+IT: - Totale sconti = 7.00 + 3.50 = 10.50
+EN: - Final total = 59.50
+IT: - Totale finale = 59.50
 
-Esempio concreto / Concrete example
-Basket:
-- SKU A, qty 3, unit 10.00
-- SKU B, qty 1, unit 40.00
-Rules:
-- BulkDiscountRule("A", minQty=3, percent=0.10)
-- ThresholdPercentRule(minTotal=50.00, percent=0.05)
+Tasks / Obiettivi
+EN: 1) Make Basket truly immutable (defensive copy + validation).
+IT: 1) Rendi Basket realmente immutabile (copia difensiva + validazione).
+EN: 2) Implement the two discount rules.
+IT: 2) Implementa le due regole di sconto.
+EN: 3) Implement PricingEngine.apply to compute totals and discounts.
+IT: 3) Implementa PricingEngine.apply per calcolare totali e sconti.
 
-Expected result:
-- Original total = 70.00
-- Discount total = 7.00 + 3.50 = 10.50
-- Final total = 59.50
-
-Obiettivi / Tasks
-1) Rendi Basket realmente immutabile (defensive copy + validazione).
-2) Implementa le due regole di sconto.
-3) Implementa PricingEngine.apply per calcolare i totali e la lista sconti.
-
-Suggerimenti / Hints
-- Usa List.copyOf per evitare modifiche esterne.
-- Le regole devono restituire Optional.empty() se non applicabili.
-- Somma gli sconti e calcola il totale finale senza toccare gli oggetti originali.
+Hints / Suggerimenti
+EN: Use List.copyOf to avoid external mutation.
+IT: Usa List.copyOf per evitare modifiche esterne.
+EN: Rules should return Optional.empty() when not applicable.
+IT: Le regole devono restituire Optional.empty() se non applicabili.
+EN: Sum discounts and compute final total without touching original data.
+IT: Somma gli sconti e calcola il totale finale senza toccare i dati originali.

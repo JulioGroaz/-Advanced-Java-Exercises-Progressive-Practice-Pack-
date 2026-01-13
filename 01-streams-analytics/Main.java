@@ -25,17 +25,17 @@ public class Main {
   }
 
   static Map<String, Double> totalsByCustomer(List<Transaction> tx) {
-    // TODO: group by customerId and sum amounts.
+    // TODO (EN): group by customerId and sum amounts. (IT): raggruppa per customerId e somma gli importi.
     throw new UnsupportedOperationException("TODO");
   }
 
   static List<String> topCustomers(List<Transaction> tx, int limit) {
-    // TODO: sort by total desc, then id asc, and return top ids.
+    // TODO (EN): sort by total desc, then id asc, and return top ids. (IT): ordina per totale decrescente, poi id crescente, e restituisci i primi id.
     throw new UnsupportedOperationException("TODO");
   }
 
   static Map<YearMonth, Double> averageByMonth(List<Transaction> tx) {
-    // TODO: group by YearMonth and average amounts.
+    // TODO (EN): group by YearMonth and average amounts. (IT): raggruppa per YearMonth e calcola la media degli importi.
     throw new UnsupportedOperationException("TODO");
   }
 }

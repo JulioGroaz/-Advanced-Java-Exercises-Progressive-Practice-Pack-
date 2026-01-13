@@ -10,7 +10,7 @@ public class Main {
 
   record Basket(List<LineItem> items) {
     Basket {
-      // TODO: validate qty >= 1, unitPrice >= 0, and defensive copy.
+      // TODO (EN): validate qty >= 1, unitPrice >= 0, and defensive copy. (IT): valida qty >= 1, unitPrice >= 0, e fai una copia difensiva.
       throw new UnsupportedOperationException("TODO");
     }
 
@@ -41,7 +41,7 @@ public class Main {
 
     @Override
     public Optional<AppliedDiscount> apply(Basket basket) {
-      // TODO: if matching item qty >= minQty, return discount = qty * unitPrice * percent.
+      // TODO (EN): if matching item qty >= minQty, return discount = qty * unitPrice * percent. (IT): se la qty dell item >= minQty, sconto = qty * unitPrice * percent.
       throw new UnsupportedOperationException("TODO");
     }
   }
@@ -57,14 +57,14 @@ public class Main {
 
     @Override
     public Optional<AppliedDiscount> apply(Basket basket) {
-      // TODO: if basket.total() >= minTotal, discount = total * percent.
+      // TODO (EN): if basket.total() >= minTotal, discount = total * percent. (IT): se basket.total() >= minTotal, sconto = totale * percent.
       throw new UnsupportedOperationException("TODO");
     }
   }
 
   static class PricingEngine {
     static PricingSummary apply(Basket basket, List<PricingRule> rules) {
-      // TODO: evaluate rules, collect AppliedDiscounts, compute totals.
+      // TODO (EN): evaluate rules, collect AppliedDiscounts, compute totals. (IT): valuta le regole, raccogli AppliedDiscounts, calcola i totali.
       throw new UnsupportedOperationException("TODO");
     }
   }

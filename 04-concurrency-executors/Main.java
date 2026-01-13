@@ -30,7 +30,7 @@ public class Main {
   }
 
   static List<TaskResult> runAll(List<Callable<TaskResult>> tasks, Duration timeout, int poolSize) {
-    // TODO: execute tasks with timeout per task and collect TaskResult for each.
+    // TODO (EN): execute tasks with timeout per task and collect TaskResult for each. (IT): esegui i task con timeout per task e raccogli un TaskResult per ciascuno.
     throw new UnsupportedOperationException("TODO");
   }
 

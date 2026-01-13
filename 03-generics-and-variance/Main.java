@@ -39,17 +39,17 @@ public class Main {
   }
 
   static <T> void transfer(List<? extends T> src, List<? super T> dst) {
-    // TODO: add all elements from src to dst.
+    // TODO (EN): add all elements from src to dst. (IT): aggiungi tutti gli elementi da src a dst.
     throw new UnsupportedOperationException("TODO");
   }
 
   static <T> T maxBy(List<? extends T> items, Comparator<? super T> cmp) {
-    // TODO: return max element using comparator.
+    // TODO (EN): return max element using comparator. (IT): restituisci l elemento massimo usando il comparator.
     throw new UnsupportedOperationException("TODO");
   }
 
   static void printNames(List<? extends Product> items) {
-    // TODO: print item names using only Product API.
+    // TODO (EN): print item names using only Product API. (IT): stampa i nomi usando solo la API di Product.
     throw new UnsupportedOperationException("TODO");
   }
 

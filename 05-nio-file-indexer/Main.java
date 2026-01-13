@@ -24,7 +24,7 @@ public class Main {
     Files.walkFileTree(root, new SimpleFileVisitor<Path>() {
       @Override
       public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        // TODO: filter extension and size, then read and count words.
+        // TODO (EN): filter extension and size, then read and count words. (IT): filtra estensione e dimensione, poi leggi e conta le parole.
         return FileVisitResult.CONTINUE;
       }
     });
@@ -33,12 +33,12 @@ public class Main {
   }
 
   static Map<String, Integer> countWords(String content) {
-    // TODO: split content, lowercase tokens, and count.
+    // TODO (EN): split content, lowercase tokens, and count. (IT): splitta il contenuto, porta in minuscolo i token e conta.
     throw new UnsupportedOperationException("TODO");
   }
 
   static void printTopWords(Map<Path, Map<String, Integer>> index, int topN) {
-    // TODO: for each file, print topN words by frequency.
+    // TODO (EN): for each file, print topN words by frequency. (IT): per ogni file, stampa le topN parole per frequenza.
     throw new UnsupportedOperationException("TODO");
   }
 }

@@ -1,29 +1,39 @@
 # 05 - NIO File Indexer
 
-IT - Concetto
-NIO offre API moderne per visitare directory e leggere file in modo efficiente.
-In questo esercizio crei un piccolo indicizzatore che conta le parole nei file
-.java sotto una cartella, con un limite di dimensione.
+Concept / Concetto
+EN: NIO provides modern APIs to traverse directories and read files efficiently.
+IT: NIO offre API moderne per visitare directory e leggere file in modo efficiente.
+EN: You will build an indexer that counts words in .java files under a folder.
+IT: Creerai un indicizzatore che conta le parole nei file .java in una cartella.
+EN: A max file size limit is enforced.
+IT: E presente un limite massimo di dimensione file.
 
-EN - Concept
-NIO provides modern APIs to traverse directories and read files efficiently.
-In this exercise you build a small indexer that counts words in .java files
-under a folder, with a size limit.
+Example / Esempio
+EN: If the folder contains:
+IT: Se la cartella contiene:
+EN: - A.java: "class A { int a; }"
+IT: - A.java: "class A { int a; }"
+EN: - B.java: "class B { int b; int b; }"
+IT: - B.java: "class B { int b; int b; }"
+EN: Output:
+IT: Output:
+EN: - A.java: class=1, int=1, a=1
+IT: - A.java: class=1, int=1, a=1
+EN: - B.java: class=1, int=2, b=2
+IT: - B.java: class=1, int=2, b=2
 
-Esempio concreto / Concrete example
-Se la cartella contiene:
-- A.java: "class A { int a; }"
-- B.java: "class B { int b; int b; }"
-Output:
-- A.java: class=1, int=1, a=1
-- B.java: class=1, int=2, b=2
+Tasks / Obiettivi
+EN: 1) Implement index using Files.walkFileTree and SimpleFileVisitor.
+IT: 1) Implementa index usando Files.walkFileTree e SimpleFileVisitor.
+EN: 2) Implement countWords to tokenize and count (lowercase).
+IT: 2) Implementa countWords per tokenizzare e contare (lowercase).
+EN: 3) Implement printTopWords to show the most frequent words per file.
+IT: 3) Implementa printTopWords per stampare le parole piu frequenti per file.
 
-Obiettivi / Tasks
-1) Implementa index usando Files.walkFileTree e SimpleFileVisitor.
-2) Implementa countWords per tokenizzare e contare (lowercase).
-3) Implementa printTopWords per stampare le parole piu frequenti per file.
-
-Suggerimenti / Hints
-- Filtra solo file con estensione .java.
-- Salta file piu grandi di maxBytes.
-- Usa Pattern o String.split con regex non alfabetica.
+Hints / Suggerimenti
+EN: Filter only files with .java extension.
+IT: Filtra solo file con estensione .java.
+EN: Skip files larger than maxBytes.
+IT: Salta i file piu grandi di maxBytes.
+EN: Use Pattern or String.split with a non-letter regex.
+IT: Usa Pattern o String.split con regex non alfabetica.
